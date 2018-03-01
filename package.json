@@ -1,18 +1,20 @@
 {
-  "name": "callbag-from-iter",
+  "name": "callbag-from-iterable",
   "version": "1.0.0",
   "description": "Convert an iterable or iterator to a callbag pullable source",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/staltz/callbag-from-iter.git"
+    "url": "git+https://github.com/avinashcodes/callbag-from-iter.git"
   },
   "main": "index.js",
   "scripts": {
     "test": "tape test.js"
   },
-  "author": "staltz.com",
+  "author": "Avinash Anupoju",
   "license": "MIT",
-  "keywords": ["callbag"],
+  "keywords": [
+    "callbag"
+  ],
   "devDependencies": {
     "tape": "^4.8.0"
   }

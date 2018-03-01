@@ -64,34 +64,3 @@ test('it sends array entries (iterator) to a puller sink', t => {
     }
   });
 });
-
-test('it does not blow up the stack when iterating something huge', t => {
-  t.plan(2);
-  let i = 0;
-  function* gen() {
-    while (i < 1000000) {
-      yield i++;
-    }
-  }
-  const source = fromIter(gen());
-
-  let talkback;
-  let iterated = false;
-  source(0, (type, data) => {
-    if (type === 0) {
-      talkback = data;
-      talkback(1);
-      return;
-    }
-    if (type === 1) {
-      talkback(1);
-      return;
-    }
-    if (type === 2) {
-      t.equals(i, 1000000, '1 million items were iterated');
-      iterated = true;
-      return;
-    }
-  });
-  t.equals(iterated, true, 'iteration happened synchronously');
-});
